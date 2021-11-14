@@ -64,7 +64,11 @@ if (validation.error.length != 0) {
         ...pipes,
         writeStream,
         (err)=>{
-            console.log(err)
+            if(err != undefined){
+                console.log(err)
+            } else {
+                process.stdout.write("Done!")
+            }
         }
     );
     readStream.on('close', ()=>{
