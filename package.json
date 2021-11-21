@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "coverage": "jest --coverage --verbose false"
+
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/MasterTeam1997/RSSchool/issues"
   },
-  "homepage": "https://github.com/MasterTeam1997/RSSchool#readme"
+  "homepage": "https://github.com/MasterTeam1997/RSSchool#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
 }
