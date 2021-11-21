@@ -1,10 +1,10 @@
 var get_args = require("../utils/argsval.js")
 
 test("config, input, output passed correctly", () => {
-    expect(get_args(['-c', 'C1-C1-R0-A', '-i', 'task1/test/argsval.test.js', '-o', 'task1/test/argsval.test.js'])).toEqual({
+    expect(get_args(['-c', 'C1-C1-R0-A', '-i', 'task2/test/argsval.test.js', '-o', 'task2/test/argsval.test.js'])).toEqual({
         config: 'C1-C1-R0-A',
-        input: "task1/test/argsval.test.js",
-        output: "task1/test/argsval.test.js",
+        input: "task2/test/argsval.test.js",
+        output: "task2/test/argsval.test.js",
         error: []
     });
 })

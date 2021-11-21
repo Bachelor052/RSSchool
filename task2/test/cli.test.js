@@ -31,7 +31,7 @@ test('case 3', done => {
     dir.pop()
     dir = dir.join("/")
     execute("node "+dir+"/my_ciphering_cli -c A -i "+dir+"/non_input.txt", (stderr)=>{
-        expect(stderr).toBe("Input file doesn't exist: '-i C:/RSSchool/task1/non_input.txt'");
+        expect(stderr).toBe("Input file doesn't exist: '-i C:/RSSchool/task2/non_input.txt'");
         done();
     })
 })
@@ -41,13 +41,13 @@ test('case 4', done => {
     dir.pop()
     dir = dir.join("/")
     execute("node "+dir+"/my_ciphering_cli -c A -o "+dir+"/non_output.txt", (stderr)=>{
-        expect(stderr).toBe("Output file doesn't exist: '-o C:/RSSchool/task1/non_output.txt'");
+        expect(stderr).toBe("Output file doesn't exist: '-o C:/RSSchool/task2/non_output.txt'");
         done();
     })
 })
 
 test('case 5', done => {
-    execute("node task1/my_ciphering_cli -c ABC", (stderr)=>{
+    execute("node task2/my_ciphering_cli -c ABC", (stderr)=>{
         expect(stderr).toBe("Incorrect config params: '-c ABC'");
         done();
     })

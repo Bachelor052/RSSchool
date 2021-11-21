@@ -5,6 +5,7 @@ module.exports = class MyWritableStream extends Writable {
     constructor(filename, chunk_size) {
         super();
         this.filename = filename;
+        this.fd = 0
         //this.chunk_size = chunk_size
     }
     _construct(callback) {

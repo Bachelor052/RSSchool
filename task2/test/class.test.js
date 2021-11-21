@@ -52,8 +52,8 @@ function stdinTransformStreamFunc(char, callback){
 }
 
 function myReadableStreamFunc(callback){
-    var wrongReadStream = new MyReadableStream("task1/test/wrong_input_test.txt", 1);
-    var readStream = new MyReadableStream("task1/test/input_test.txt", 1);
+    var wrongReadStream = new MyReadableStream("task2/test/wrong_input_test.txt", 1);
+    var readStream = new MyReadableStream("task2/test/input_test.txt", 1);
     readStream._construct((data) => {})
     var source = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz';
     var result = [];
@@ -70,13 +70,13 @@ function myReadableStreamFunc(callback){
 }
 
 function myWritableStreamFunc(callback){
-    var wrongWriteStream = new MyWritableStream("task1/test/wrong_output_test.txt");
-    var writeStream = new MyWritableStream("task1/test/output_test.txt");
+    var wrongWriteStream = new MyWritableStream("task2/test/wrong_output_test.txt");
+    var writeStream = new MyWritableStream("task2/test/output_test.txt");
     writeStream._construct((data) => {})
     var source = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz';
-    fs.writeFile("task1/test/output_test.txt", '', ()=>{
+    fs.writeFile("task2/test/output_test.txt", '', ()=>{
         writeStream._write(source, "utf-8", ()=>{
-            fs.readFile("task1/test/output_test.txt", "utf8", function(error,data){
+            fs.readFile("task2/test/output_test.txt", "utf8", function(error,data){
                 callback(data)
             });
         })
