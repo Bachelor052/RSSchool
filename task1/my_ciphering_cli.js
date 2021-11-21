@@ -9,11 +9,15 @@ var Atbash = require("./utils/Atbash.js");
 const { pipeline } = require("stream");
 var get_args = require("./utils/argsval.js")
 
+//console.log(process.argv)
+
 var stdinTransformStream = new StdinTransformStream();
 var validation = get_args(process.argv);
 
+//console.log(validation)
+
 if (validation.error.length != 0) {
-    process.stderr.write("\x1b[41m" + validation.error.join("\n") + "\x1b[0m")
+    process.stderr.write(/*"\x1b[41m" + */validation.error.join("\n")/* + "\x1b[0m"*/)
     process.exit(-1)
 } else {
     var {config, input, output} = validation
@@ -44,19 +48,19 @@ if (validation.error.length != 0) {
     configArr.forEach(element => {
         switch(element){
             case "C0":
-                pipes.push(new CaesarEncode())
+                pipes.push(new CaesarDecode())
             break;
             case "C1": 
-                pipes.push(new CaesarDecode())
+                pipes.push(new CaesarEncode())
             break;
             case "A": 
                 pipes.push(new Atbash())
             break;
             case "R0": 
-                pipes.push(new Rot8Encode())
+                pipes.push(new Rot8Decode())
             break;
             case "R1": 
-                pipes.push(new Rot8Decode())
+                pipes.push(new Rot8Encode())
             break;
         }
     });
