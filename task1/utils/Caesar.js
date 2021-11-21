@@ -1,10 +1,11 @@
 var fs = require('fs');
 const {Transform} = require("stream");
 
-class Encode extends Transform {
+class Decode extends Transform {
     constructor(options) {
         super(options);
     }
+    
     _transform(chunk,encode,callback){
         //console.log("In caesarEncode: "+ chunk.toString())
         chunk = chunk.toString().charCodeAt(0)
@@ -19,7 +20,7 @@ class Encode extends Transform {
         callback(null, chunk)
     }
 }
-class Decode extends Transform {
+class Encode extends Transform {
     constructor(options) {
         super(options);
     }

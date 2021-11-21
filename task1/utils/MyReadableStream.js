@@ -10,31 +10,19 @@ module.exports = class MyReadableStream extends Readable {
     }
     _construct(callback) {
         fs.open(this.filename, "r", (err, fd) => {
-            if (err) {
-                callback(err);
-            } else {
-                this.fd = fd;
-                callback();
-            }
+            this.fd = fd;
+            callback();
         });
     }
     _read() {
         var chunk_size = this.chunk_size
         const buf = Buffer.alloc(chunk_size);
         fs.read(this.fd, buf, 0, chunk_size, null, (err, bytesRead) => {
-            if (err) {
-                this.destroy(err);
-            } else {
-                this.push(bytesRead > 0 ? buf.slice(0, bytesRead) : null);
-            }
+            this.push(bytesRead > 0 ? buf.slice(0, bytesRead) : null);
         });
     }
     _destroy(err, callback) {
-        if (this.fd) {
-            fs.close(this.fd, (er) => callback(er || err));
-        } else {
-            callback(err);
-        }
+        fs.close(this.fd, (er) => callback(er || err));
     }
 }
 

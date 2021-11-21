@@ -4,7 +4,6 @@ exports.file_valid = function (path) {
     try{
         if(fs.existsSync(path)) return true
     }catch (err) {
-        return false
     }
 }
 // exports.file_valid = function (path, write = false) {

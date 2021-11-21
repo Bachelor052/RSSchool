@@ -13,6 +13,7 @@ module.exports = class StdinTransformStream extends Transform {
             var chunk = chunkArr[i];
             chunk = Buffer.from(chunk)
             this.push(chunk)
+            callback(chunk)
         }
     }
 }

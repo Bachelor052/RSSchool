@@ -1,5 +1,9 @@
 exports.config_valid = function(config){
-    return containsOnly(["C0", "C1", "A", "R0", "R1"], config.split("-"));
+    if(config != undefined){
+        return containsOnly(["C0", "C1", "A", "R0", "R1"], config.split("-"));
+    } else {
+        return false
+    }
 }
 //edit config validation
 function containsOnly(array1, array2){ //taken from stackoverflow
