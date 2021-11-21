@@ -31,7 +31,7 @@ test('case 3', done => {
     dir.pop()
     dir = dir.join("/")
     execute("node "+dir+"/my_ciphering_cli -c A -i "+dir+"/non_input.txt", (stderr)=>{
-        expect(stderr).toBe("Input file doesn't exist: '-i C:/RSSchool/task2/non_input.txt'");
+        expect(stderr).toBe("Input file doesn't exist: '-i "+dir+"/non_input.txt'");
         done();
     })
 })
@@ -41,7 +41,7 @@ test('case 4', done => {
     dir.pop()
     dir = dir.join("/")
     execute("node "+dir+"/my_ciphering_cli -c A -o "+dir+"/non_output.txt", (stderr)=>{
-        expect(stderr).toBe("Output file doesn't exist: '-o C:/RSSchool/task2/non_output.txt'");
+        expect(stderr).toBe("Output file doesn't exist: '-o "+dir+"/non_output.txt'");
         done();
     })
 })
