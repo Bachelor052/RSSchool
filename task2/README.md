@@ -1,10 +1,22 @@
-# How to
+# Install
+To install go to main folder (RSSchool) and enter: 
+>npm i
 
-To start the program go to task1 folder and enter: 
+# How to run
+
+To start the program go to task2 folder and enter: 
 >node my_ciphering_cli -c `config` -i `input file path` -o `output file path`
 
 Where `-o` is `--output`, `-i` is `--input` and `-c` is `--config`. All can be interchanged 
 and order doesn't matter. 
+
+# How to test
+To start the test go to main folder (RSSchool) and enter: 
+>npm test
+
+# How to test coverage
+To start the test go to main folder (RSSchool) and enter: 
+>npm run coverage
 
 # Config 
 There are 3 cipher types.   
